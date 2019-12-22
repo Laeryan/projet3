@@ -1,3 +1,7 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 /* entête + menu de navigation*/
 header {
     display: flex;
@@ -95,4 +99,26 @@ nav a {
     width: 50%;
     margin-top: 100px;
     margin-bottom: 100px;
+}
+
+.leaflet-popup-content > button{
+    width: 40%;
+    display: block;
+    margin: auto;
+
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 10px;
+    border: 2px solid #494949 !important;
+    transition: all 0.2s ease 0s;
+}
+
+.leaflet-popup-content > button:hover{
+    cursor: pointer;
+    color: white !important;
+    background: #0271e0;
+    border-color: #0271e0 !important;
+    transition: all 0.2s ease 0s;
 }

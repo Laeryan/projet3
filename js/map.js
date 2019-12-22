@@ -11,55 +11,76 @@ class Map {
         this.longitude = 7.33;
         this.zoom = 15;
 
-        this.map.setView([47.74329631548472, 7.31549439585265], 13);
+        this.map.setView([this.latitude, this.longitude], this.zoom = 15);
         
         this.createStationsOnMapFromJSON(this.map, this.apiUrl);
-
 
     }
 
     createStationsOnMapFromJSON(map, apiUrl){
-        var request = new XMLHttpRequest()
+        //Creating the request
+        let request = new XMLHttpRequest()
         request.open('GET', this.apiUrl, false);
 
         request.onload = function(){
-            var data = JSON.parse(this.response);
+            let data = JSON.parse(this.response);
             
             data.forEach(element => {
-                console.log(element.position.lng);
-                var station = new Station()
-                station.createMarker(map, element.position.lat, element.position.lng);
+                //For each object in the JSON, we create a station.
+                let number = element.number;
+                let name = element.name;
+                let status = element.status;
+                let address = element.address;
+                let position = [element.position.lat, element.position.lng];
+                let totalStands = element.bike_stands;
+                let availableStands = element.available_bikes;
+
+                let station = new Station(number, name, status, address, position, totalStands, availableStands);
+                station.createMarker(map);
             });
         }
 
+        //Executing request
         request.send();
     }
     
 }
 
 class Station {
-    constructor(number, name, position, status, address, totalStands) {
+    constructor(number, name, status, address, position, totalStands, availableBikes) {
         this.number = number;
         this.name = name;
-        this.coordinates = position;
         this.status = status;
         this.address = address;
+        this.position = position;
         this.places = totalStands;
+        this.availableBikes = availableBikes;
     }
 
-    createMarker(map, latitude, longitude){
-        this.marker = L.marker([latitude, longitude]).addTo(map);
-        this.marker.on('click', this.test);
+    createMarker(map){
+        console.log(this);
+        this.marker = L.marker(this.position).addTo(map);
+        //Using bind to pass this (the station) so that "this" doesn't refer to the marker in the function. 
+        this.marker.on('click', this.displayInfo.bind(this));
+        this.marker.bindPopup(this.createPopup.bind(this));
 
     }
 
-    test(){
-        console.log("Yo");
+    createPopup(){
+        let popup;
+        popup = "<h3>"+ this.name+"</h3>";
+        popup += "<p><strong>" + this.address+ "</strong></p>";
+        popup += "<p>" + this.availableBikes + " vélos disponibles</p>";
+        popup += "<button> Réserver </button>"
+        return popup
     }
+
+    displayInfo(){
+        console.log(this.number);
+        let mapDescription = document.getElementById("mapDescription");
     
-
+    }
 }
-
 
 const myMap = new Map()
 
