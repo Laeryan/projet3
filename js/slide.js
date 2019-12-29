@@ -64,7 +64,6 @@ class Slider {
         this.imgElement.src = this.slides[this.currentSlide].image
         this.titleElement.textContent = this.slides[this.currentSlide].title
         this.descriptionElement.textContent = this.slides[this.currentSlide].description
-        console.log(this.imgElement, this.titleElement, this.descriptionElement)
     }
 
     // méthode pour revenir à la slide précédente
