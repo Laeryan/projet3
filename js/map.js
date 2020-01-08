@@ -12,13 +12,8 @@ class Map {
         this.zoom = 15;
         this.map.setView([this.latitude, this.longitude], this.zoom);
         L.marker([this.latitude, this.longitude]).addTo(this.map);
-    }
-    
+    }    
 }
-
-const myMap = new Map()
-
-
 
 
 /*
@@ -30,11 +25,6 @@ var myMap = L.map('map').setView([47.75, 7.33], 13);
 
 ).addTo(myMap);
 
-const apiUrl = 'https://api.jcdecaux.com/vls/v1/stations?contract=Mulhouse&apiKey=508a0da7d19086274962c418f8cc5b7338052869';
-
-
-request.open('GET','https://api.jcdecaux.com/vls/v1/stations?contract=Mulhouse&apiKey=508a0da7d19086274962c418f8cc5b7338052869');
-request.send(null);
 
 
 
@@ -58,17 +48,4 @@ class Station {
     }
 }
 
-
-
-var requestApiJcDecaux = new Request("GET",
-    "https://api.jcdecaux.com/vls/v1/stations?contract=Mulhouse&apiKey=508a0da7d19086274962c418f8cc5b7338052869");
-
-requestApiJcDecaux.call(function (response) {
-
-    response = JSON.parse(response);
-    response.forEach(function (info) {
-        var latitude = info.position.lat;
-        var longitude = info.position.lng;
-        L.marker([latitude, longitude]).on('click', onMarkerClick).addTo(myMap);
-    });
     */

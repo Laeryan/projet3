@@ -10,10 +10,10 @@ class Slider {
     constructor() {
         this.slides = [
             new Slide("images/slider1.jpg", "Comment ça fonctionne ?", "Commencez par cliquer sur la station la plus proche de chez vous."),
-            new Slide("images/slider2.jpg", "Visualisation de la station", "Vous obtenez un récapitulatif des informations de la station : nombre de vélos disponibles, travaux, etc..."),
-            new Slide("images/slider3.jpg", "Réserver un vélo", "Pour réserver un vélo, il suffit de cliquer sur le bouton 'réserver', celui-ci ouvre un formulaire."),
-            new Slide("images/slider4.jpg", " Valider le formulaire", "Renseignez vos coordonnées, et n'oubliez pas de signer !"),
-            new Slide("images/slider5.jpg", "C'est aussi simple que ça ?", "Et oui ! Une fois le formulaire validé, un vélo vous est réservé pendant 20 minutes. Vérifiez sur le timer en bas de page que vous avez le temps de le récupérer !"),
+            new Slide("images/vélo1.jpg", "Visualisation de la station", "Vous obtenez un récapitulatif des informations de la station : nombre de vélos disponibles, travaux, etc..."),
+            new Slide("images/vélo2.jpg", "Réserver un vélo", "Pour réserver un vélo, il suffit de cliquer sur le bouton 'réserver', celui-ci ouvre un formulaire."),
+            new Slide("images/vélo3.jpg", " Valider le formulaire", "Renseignez vos coordonnées, et n'oubliez pas de signer !"),
+            new Slide("images/vélo4.jpg", "C'est aussi simple que ça ?", "Et oui ! Une fois le formulaire validé, un vélo vous est réservé pendant 20 minutes. Vérifiez sur le timer en bas de page que vous avez le temps de le récupérer !"),
         ];
 
         this.imgElement = document.querySelector(".slide_img");
@@ -102,5 +102,3 @@ class Slider {
         }, 5000)
     }
 }
-
-const slider = new Slider()
