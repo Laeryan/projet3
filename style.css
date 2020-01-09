@@ -132,7 +132,7 @@ nav a {
 /* Carte */
 #map {
     height: 600px;
-    width: 50%;
+    width: 64%;
     margin-top: 100px;
     margin-bottom: 100px;
     border-radius: 10px;
@@ -140,8 +140,78 @@ nav a {
     z-index: 1;
 }
 
+#carte
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* formulaire */
+#formulaire
+{
+    height: 600px;
+    width: 34%;
+    background-color :rgba(255, 255, 255, 0.3);
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    border: 2px dashed black;
+    z-index: 1;
+}
+
+#formulaire p
+{
+    font-size: 2em;
+    margin: 50px;
+    text-align: center;
+}
+
 /* section contact */
 #contact
 {
-    height: 500px;
+    display: flex;
+    height: 550px;
+}
+#contact_txt
+{
+    width: 60%;
+    margin-left: 100px;
+}
+
+#contact_txt p, address
+{
+    font-size: 1.5em;
+}
+
+#contact_txt h2
+{
+    font-size: 2em;
+}
+
+#contact_txt a
+{
+    text-decoration: none;
+    color: black;
+}
+
+#contact_img
+{
+    width: 40%;
+}
+
+#contact_img img
+{
+    height: 90%;
+    border-radius: 10%;
+    border: 2px solid black;
+}
+
+/* pied de page */
+footer
+{
+    height: 100px;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid black;
 }
