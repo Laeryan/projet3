@@ -1,28 +1,23 @@
-
-
 window.addEventListener("load", function() {
 
-   /* let stations = [];
+    let stations = [];
 
-    let selectedStation = null; */
+    let selectedStation = null;
 
     const slider = new Slider()
 
-    const myMap = new Map()
+    const myMap = new MyMap()
     
     const api = new ApiJCDecaux("Mulhouse", "508a0da7d19086274962c418f8cc5b7338052869")
 
-    map.addMarker([51.505, -0.09])
+    const detail = new DetailStation()
 
     api.listStations(function() {
         const listStations = JSON.parse(this.responseText)
-        /*stations = listStations;*/
-        
-        for (let station of listStations) {
+
+        for (station of listStations) {
             const position = station.position
-            map.addMarker([position.lat, position.lng]/*, function(station) {
-                selectedStation = station
-            }*/)
+            myMap.addMarker([position.lat, position.lng])
         }
     })
 

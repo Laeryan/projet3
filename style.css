@@ -18,7 +18,7 @@ body
 /* entête + menu de navigation */
 header {
     display: flex;
-    z-index: 1;
+    z-index: 2;
     position: fixed;
     background-color: white;
     border-bottom: 3px dashed black;
@@ -137,4 +137,11 @@ nav a {
     margin-bottom: 100px;
     border-radius: 10px;
     border: 2px dashed black;
+    z-index: 1;
+}
+
+/* section contact */
+#contact
+{
+    height: 500px;
 }
