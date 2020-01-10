@@ -11,19 +11,24 @@ window.addEventListener("load", function() {
     const api = new ApiJCDecaux("Mulhouse", "508a0da7d19086274962c418f8cc5b7338052869")
 
     const detail = new DetailStation()
-
+    
     api.listStations(function() {
         const listStations = JSON.parse(this.responseText)
 
-        for (station of listStations) {
+        for (let station of listStations) {
             const position = station.position
-            map.addMarker([position.lat, position.lng])
+            map.addMarker([position.lat, position.lng], () => {
+                console.log(station);
+                detail.display(0, station.name, station.status, station.address)
+            })
+
         }
     })
 
-    // J'ai besoin de créer une carte
-    // Je dois instancier un objet MyMap qui va afficher une map
-    // const map = new MyMap()
+    detail.onSubmit( () => {
+        detail.nameInputElement.value
+    })
+
 
 
     // J'ai besoin d'afficher le détail d'une station

@@ -11,26 +11,52 @@ class MyMap {
     }
 
     // méthode qui ajoute les marker sur chaque station
-    addMarker(position) {
+    addMarker(position, onClick) {
         var marker = L.marker(position).addTo(this.map);
         marker.addEventListener('click', function () {
-            console.log('ok');
+           // showDetailStation();
+            onClick()
         })
     }
-
+/*
+    showDetailStation() {
+        stations.forEach(function () {
+            console.log(station.name)
+        })
+    }
+*/
 }
 
 class DetailStation {
-    constructor(number, name, position, status, address, totalStands) {
-        this.number = number;
-        this.name = name;
-        this.coordinates = position;
-        this.status = status;
-        this.address = address;
-        this.places = totalStands;
+    constructor() {
+        this.formContainerElement = document.getElementById('form_container');
+        this.formContainerElement.style.display = 'none';
+        this.informationElement = document.getElementById('information');
+        this.stationNameElement = document.getElementById('station_name');
+        this.stationStatusElement = document.getElementById('station_status');
+        this.nameInputElement = document.getElementById('name_input') // à créer !
+        this.bookingButtonElement.addEventListener('click', this.onBooking)
+    }
+
+    // méthode pour la réservation
+    // fonctions qui vont être appelées au moment de cliquer sur réserver
+    onBooking() {
+        // ouvrir le canvas et afficher le bouton valider
+    }
+
+    // au moment de cliquer sur valider
+    onSubmit() {
+    // vérifie que le canvas est rempli et que les éléments du form sont renseignés
+    }
+
+    display(number, name, status, address, totalStands) {
+       this.informationElement.style.display = 'none';
+       this.stationNameElement.textContent = name;
+       this.stationStatusElement.textContent = status;
+       this.formContainerElement.style.display = 'inline-block';
     }
 }
 
-class Form {
-
-}
+// this.timerElement.display = 'none'
+// setTimeOut (bloquer, réservation modifiable)
+// this... hide (pour cacher au bout de 20 mn et annuler la réservation (clear timeOut))
