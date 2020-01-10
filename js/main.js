@@ -6,7 +6,7 @@ window.addEventListener("load", function() {
 
     const slider = new Slider()
 
-    const myMap = new MyMap()
+    const map = new MyMap()
     
     const api = new ApiJCDecaux("Mulhouse", "508a0da7d19086274962c418f8cc5b7338052869")
 
@@ -17,7 +17,7 @@ window.addEventListener("load", function() {
 
         for (station of listStations) {
             const position = station.position
-            myMap.addMarker([position.lat, position.lng])
+            map.addMarker([position.lat, position.lng])
         }
     })
 

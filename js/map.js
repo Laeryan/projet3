@@ -13,13 +13,12 @@ class MyMap {
     // méthode qui ajoute les marker sur chaque station
     addMarker(position) {
         var marker = L.marker(position).addTo(this.map);
-        marker.onclick = () => {
-            alert("gneugneu c'est cliqué mageuwl")
+        marker.addEventListener('click', function () {
+            console.log('ok');
+        })
     }
-}
 
-    
-    }
+}
 
 class DetailStation {
     constructor(number, name, position, status, address, totalStands) {
@@ -30,4 +29,8 @@ class DetailStation {
         this.address = address;
         this.places = totalStands;
     }
+}
+
+class Form {
+
 }
