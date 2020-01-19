@@ -206,6 +206,18 @@ nav a {
     border: 2px solid black;
 }
 
+#signature
+{
+    width: 100%;
+    display: none;
+}
+#canvas
+{
+    height: 200px;
+    width: 90%;
+    background-color: white;
+}
+
 /* pied de page */
 footer
 {

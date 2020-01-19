@@ -14,17 +14,19 @@ class MyMap {
     addMarker(position, onClick) {
         var marker = L.marker(position).addTo(this.map);
         marker.addEventListener('click', function () {
-           // showDetailStation();
             onClick()
         })
     }
-/*
-    showDetailStation() {
-        stations.forEach(function () {
-            console.log(station.name)
-        })
-    }
-*/
+
+}
+
+function isCanvasBlank(canvas) {
+    const blank = document.createElement('canvas');
+
+    blank.width = canvas.width;
+    blank.height = canvas.height;
+
+    return canvas.toDataURL() === blank.toDataURL();
 }
 
 class DetailStation {
@@ -34,29 +36,55 @@ class DetailStation {
         this.informationElement = document.getElementById('information');
         this.stationNameElement = document.getElementById('station_name');
         this.stationStatusElement = document.getElementById('station_status');
-        this.nameInputElement = document.getElementById('name_input') // à créer !
-        this.bookingButtonElement.addEventListener('click', this.onBooking)
+        this.stationAddressElement = document.getElementById('station_address');
+        this.stationStandsElement = document.getElementById("station_stands");
+        this.firstNameInputElement = document.getElementById('first_name');
+        this.lastNameInputElement = document.getElementById('last_name');
+        this.bookingButtonElement = document.getElementById('reservation');
+        this.signatureElement = document.getElementById('signature');
+        this.submitButtonElement = document.getElementById('validation');
+        this.canvasElement = document.getElementById('canvas');
+        this.bookingButtonElement.addEventListener('click', this.onBooking.bind(this));
+        this.submitButtonElement.addEventListener('click', this.onSubmit.bind(this));
     }
 
-    // méthode pour la réservation
-    // fonctions qui vont être appelées au moment de cliquer sur réserver
+    // méthode qui affiche le canvas et le bouton valider (pour la signature)
     onBooking() {
-        // ouvrir le canvas et afficher le bouton valider
+        this.signatureElement.style.display = 'inline-block';
     }
 
-    // au moment de cliquer sur valider
-    onSubmit() {
+
+
     // vérifie que le canvas est rempli et que les éléments du form sont renseignés
+    onSubmit() {
+        if (this.lastNameInputElement.value == "" || this.firstNameInputElement.value == "") {
+            alert('Veuillez saisir vos noms et prénoms');
+      //  } else if (isCanvasBlank(this.canvasElement) == true) {
+       //     alert('Veuillez entrer votre signature');
+        } else {
+            this.createTimer()
+        }
     }
 
-    display(number, name, status, address, totalStands) {
-       this.informationElement.style.display = 'none';
-       this.stationNameElement.textContent = name;
-       this.stationStatusElement.textContent = status;
-       this.formContainerElement.style.display = 'inline-block';
+    display(name, status, address, totalStands) {
+        this.informationElement.style.display = 'none';
+        this.formContainerElement.style.display = 'inline-block';
+        this.stationNameElement.textContent = name;
+        this.stationStatusElement.textContent = status;
+        this.stationAddressElement.textContent = address;
+        let bikeNumber = totalStands + " vélos restants";
+        this.stationStandsElement.textContent = bikeNumber;
+    }
+
+    createTimer() {
+        setInterval(function () {
+            let now = new Date().getTime();
+            let countDown = new Date(now + 20*60000);
+            let distance = countDown;
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById('timer').innerHTML = "Plus que " + minutes + " minutes" + seconds + " secondes avant l'annulation de la réservation."
+        }, 1000)
     }
 }
 
-// this.timerElement.display = 'none'
-// setTimeOut (bloquer, réservation modifiable)
-// this... hide (pour cacher au bout de 20 mn et annuler la réservation (clear timeOut))

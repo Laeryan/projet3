@@ -19,16 +19,16 @@ window.addEventListener("load", function() {
             const position = station.position
             map.addMarker([position.lat, position.lng], () => {
                 console.log(station);
-                detail.display(0, station.name, station.status, station.address)
+                detail.display(station.name, station.status, station.address, station.bike_stands)
             })
 
         }
     })
-
+/*
     detail.onSubmit( () => {
         detail.nameInputElement.value
     })
-
+*/
 
 
     // J'ai besoin d'afficher le détail d'une station
