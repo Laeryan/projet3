@@ -45,6 +45,7 @@ class DetailStation {
         this.submitButtonElement = document.getElementById('validation');
         this.canvasElement = document.getElementById('canvas');
         this.bookingButtonElement.addEventListener('click', this.onBooking.bind(this));
+        this._onSubmit = function() {};
         this.submitButtonElement.addEventListener('click', this.onSubmit.bind(this));
     }
 
@@ -62,7 +63,7 @@ class DetailStation {
       //  } else if (isCanvasBlank(this.canvasElement) == true) {
        //     alert('Veuillez entrer votre signature');
         } else {
-            this.createTimer()
+            this._onSubmit();
         }
     }
 
@@ -75,16 +76,4 @@ class DetailStation {
         let bikeNumber = totalStands + " vélos restants";
         this.stationStandsElement.textContent = bikeNumber;
     }
-
-    createTimer() {
-        setInterval(function () {
-            let now = new Date().getTime();
-            let countDown = new Date(now + 20*60000);
-            let distance = countDown;
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById('timer').innerHTML = "Plus que " + minutes + " minutes" + seconds + " secondes avant l'annulation de la réservation."
-        }, 1000)
-    }
 }
-
