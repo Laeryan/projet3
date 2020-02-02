@@ -16,9 +16,11 @@ window.addEventListener("load", function () {
 
     const timer = new Timer();
 
-    detail._onSubmit = () => {
+    detail._onSubmit = (name) => {
         timer.time = new Date();
         timer.start();
+        sessionStorage.setItem('stationName', name);
+        sessionStorage.setItem('reservationDate', timer.time);
     }
 
 

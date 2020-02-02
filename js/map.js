@@ -47,6 +47,7 @@ class DetailStation {
         this.bookingButtonElement.addEventListener('click', this.onBooking.bind(this));
         this._onSubmit = function() {};
         this.submitButtonElement.addEventListener('click', this.onSubmit.bind(this));
+        this.stationName = null ;
     }
 
     // méthode qui affiche le canvas et le bouton valider (pour la signature)
@@ -60,10 +61,10 @@ class DetailStation {
     onSubmit() {
         if (this.lastNameInputElement.value == "" || this.firstNameInputElement.value == "") {
             alert('Veuillez saisir vos noms et prénoms');
-      //  } else if (isCanvasBlank(this.canvasElement) == true) {
-       //     alert('Veuillez entrer votre signature');
+        } else if (isCanvasBlank(this.canvasElement) == true) {
+            alert('Veuillez entrer votre signature');
         } else {
-            this._onSubmit();
+            this._onSubmit(this.stationName);
         }
     }
 
@@ -75,5 +76,6 @@ class DetailStation {
         this.stationAddressElement.textContent = address;
         let bikeNumber = totalStands + " vélos restants";
         this.stationStandsElement.textContent = bikeNumber;
+        this.stationName = name ;
     }
 }

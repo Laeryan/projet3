@@ -3,11 +3,17 @@ class Timer {
         this.timerElement = document.getElementById('timer');
         this.time = null;
         this.maxTime = maxTime;
-    }
 
+        if (sessionStorage.getItem('reservationDate') !== false) {
+            this.time = new Date(sessionStorage.getItem('reservationDate'))
+            this.start();
+        }
+
+    }
+ // ne pas oublier dem ettre le nom de la station 
     display() {
         if (this.time && this.restTime() > 0) {
-            this.timerElement.innerHTML = `Il reste ${this.formatRestTime().restMinutes} minutes et ${this.formatRestTime().restSeconds} secondes avant l'annulation de votre réservation.`
+            this.timerElement.innerHTML = `Il reste ${this.formatRestTime().restMinutes} minutes et ${this.formatRestTime().restSeconds} secondes avant l'annulation de votre réservation à la station ` // nom de la station
         } 
 
         if (this.restTime <= 0) {

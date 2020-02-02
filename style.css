@@ -211,12 +211,10 @@ nav a {
     width: 100%;
     display: none;
 }
-#canvas
-{
-    height: 200px;
-    width: 90%;
+#canvas {
+    border: 1px solid black;
     background-color: white;
-}
+  }
 
 /* pied de page */
 footer
