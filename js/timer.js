@@ -10,16 +10,16 @@ class Timer {
         }
 
     }
- // ne pas oublier dem ettre le nom de la station 
+    // ne pas oublier de mettre le nom de la station 
     display() {
         if (this.time && this.restTime() > 0) {
-            this.timerElement.innerHTML = `Il reste ${this.formatRestTime().restMinutes} minutes et ${this.formatRestTime().restSeconds} secondes avant l'annulation de votre réservation à la station ` // nom de la station
-        } 
+            this.timerElement.innerHTML = `Il reste ${this.formatRestTime().restMinutes} minutes et ${this.formatRestTime().restSeconds} secondes avant l'annulation de votre réservation pour la station numéro ${stationName.name}`
+        }
 
         if (this.restTime <= 0) {
             this.stop();
         }
-        
+
     }
 
     // calcule le temps restant
@@ -29,10 +29,10 @@ class Timer {
 
     // commence le timer
     start() {
-        this.interval = setInterval( () => {
+        this.interval = setInterval(() => {
             console.log(this.restTime())
             this.display();
-        }, 1000) 
+        }, 1000)
     }
 
     // arrête le timer

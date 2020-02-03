@@ -46,7 +46,7 @@
         <p class="slide_description"></p>
       </div>
 
-      <!-- boutons  -->
+      <!-- boutons du slider -->
       <div>
         <i id="chevron-left" class="fas fa-chevron-left"></i>
         <i id="play-btn" class="fas fa-play"></i>
@@ -65,6 +65,7 @@
     <div id="formulaire">
       <p id="information">Cliquez sur un marqueur pour afficher les informations concernant une station !</p>
       
+      <!-- informations sur la station -->
       <div id="form_container">
         <div id="station_name">
         </div>
@@ -75,6 +76,7 @@
         <div id="station_stands">
         </div>
 
+        <!-- formulaire de réservation -->
         <div id="name_input">
 
           <input type="text" id="last_name" placeholder="Nom">
@@ -83,6 +85,7 @@
 
         </div>
         
+        <!-- signature à faire avec un dessin -->
         <div id="signature">
           <canvas id="canvas"></canvas>
           <input type="submit" id="validation" value="Valider">
@@ -91,10 +94,13 @@
     </div>
   </section>
   
+  <!-- affichage du timer lorsqu'on a validé une réservation -->
   <section id="timer">
 
   </section>
 
+
+  <!-- informations de contact -->
   <section id="contact">
     <div id="contact_txt">
       <h2>Nous contacter</h2>
@@ -119,7 +125,7 @@
     </ul>
   </footer>
 
-
+<!-- Appel de tous les fichiers JavaScript nécessaires -->
   <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/api.js"></script>
   <script type="text/javascript" src="js/slide.js"></script>

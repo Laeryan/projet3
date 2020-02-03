@@ -1,4 +1,4 @@
-window.addEventListener("load", function () {
+window.addEventListener("load", function () {     // méthode qui charge toutes les constantes à l'ouverture du site dans la fenêtre
 
     let stations = [];
 
@@ -36,16 +36,4 @@ window.addEventListener("load", function () {
 
         }
     })
-    /*
-        detail.onSubmit( () => {
-            detail.nameInputElement.value
-        })
-    */
-
-
-    // J'ai besoin d'afficher le détail d'une station
-    // lorsque l'utilisateur click sur un marker
-    // Je dois instancier un objet DetailStation qui va afficher
-    // le détail de la station dans la page / DOM
-    // const detail = new DetailStation()
 })
