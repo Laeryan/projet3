@@ -8,7 +8,7 @@ window.addEventListener("load", function () {     // méthode qui charge toutes 
 
     const map = new MyMap();
 
-    const api = new ApiJCDecaux("Mulhouse", "508a0da7d19086274962c418f8cc5b7338052869");
+    const api = new ApiJCDecaux("Mulhouse", "508a0da7d19086274962c418f8cc5b7338052869"); // Nom de la ville choisie + clé d'utilisation de l'API
 
     const detail = new DetailStation();
 
@@ -21,6 +21,8 @@ window.addEventListener("load", function () {     // méthode qui charge toutes 
         timer.start();
         sessionStorage.setItem('stationName', name);
         sessionStorage.setItem('reservationDate', timer.time);
+        localStorage.setItem('firstName', canvas.firstNameInputElement);
+        localStorage.setItem('lastName', canvas.lastNameInputElement);
     }
 
 

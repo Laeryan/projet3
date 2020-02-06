@@ -2,6 +2,22 @@
 <html lang="fr">
 
 <head>
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Vélociraptor"/>
+	<meta property="og:type" content="Site web"/>
+	<meta property="og:url" content="#"/>
+	<meta property="og:image" content="images/raptor.png"/>
+	<meta property="og:description" content="Déplacez-vous facilement et rapidement dans Moulhouse avec Vélociraptor ! Selectionnez une station et louez un vélo sur notre application."/>
+
+	<meta name="twitter:card" content="Site de location de vélo Vélociraptor"/>
+	<meta name="twitter:site" content="@velociraptor"/>
+	<meta name="twitter:title" content="Vélociraptor"/>
+	<meta name="twitter:description" content="Déplacez-vous facilement et rapidement dans Moulhouse avec Vélociraptor ! Selectionnez une station et louez un vélo sur notre application."/>
+	<meta name="twitter:creator" content="@velociraptor"/>
+	<meta name="twitter:image" content="images/raptor.png"/>
+  <!-- OpenGraph fin-->
+
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -21,7 +37,7 @@
   <!-- JQuery fin -->
 
   <title>Vélociraptor</title>
-  <link rel="shortcut icon" type="image/ico" href="images/raptor.ico" />
+  <link rel="shortcut icon" type="image/ico" href="images/raptor.ico"/>
 </head>
 
 <body>
@@ -89,6 +105,7 @@
         <div id="signature">
           <canvas id="canvas"></canvas>
           <input type="submit" id="validation" value="Valider">
+          <input type="submit" id="clear" value="Effacer">
         </div>        
       </div>
     </div>
@@ -96,7 +113,6 @@
   
   <!-- affichage du timer lorsqu'on a validé une réservation -->
   <section id="timer">
-
   </section>
 
 
@@ -110,8 +126,8 @@
       <p>
         <address>Vélociraptor<br>66, rue des reptiliens<br>66000 Dinocity</address>
       </p>
-      <p><a href="tel:+330102030405">Tel : 01.02.03.04.05</a></p>
-      <p><a href="mailto:dr.raptor@gmail.com">Mail : dr.raptor@gmail.com</a></p>
+      <p><a href="tel:+330102030405" title="Cliquez ici pour nous téléphoner !">Tel : 01.02.03.04.05</a></p>
+      <p><a href="mailto:dr.raptor@gmail.com" title="Cliquez ici pour nous envoyer un mail !">Mail : dr.raptor@gmail.com</a></p>
     </div>
     <div id="contact_img">
       <img src="images/DrRaptor.jpg" title="Dr Raptor répond à vos questions" alt="Vélociraptor avec costume et pipe">
@@ -121,7 +137,9 @@
 
   <footer>
     <ul>
-      <li></li>
+      <li><a href="#">Nos partenaires</a></li>
+      <li><a href="mention.html" target="_blank">Mentions légales</a></li>
+      <li><a href="#">Plus d'infos sur Mulhouse</a></li>
     </ul>
   </footer>
 
@@ -132,6 +150,7 @@
   <script type="text/javascript" src="js/map.js"></script>
   <script type="text/javascript" src="js/canvas.js"></script>
   <script type="text/javascript" src="js/timer.js"></script>
+  <script type="text/javascript" src="js/detail.js"></script>
 
 </body>
 
