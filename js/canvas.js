@@ -1,6 +1,7 @@
 class CanvasSignature {
     constructor() {
         this.canvas = document.getElementById('canvas');
+       // this.clearBtn = document.getElementById("clear-btn");
         this.ctx = canvas.getContext('2d');
         this.ctx.strokeStyle = 'black';
         this.ctx.lineWidth = 1;
@@ -43,10 +44,23 @@ class CanvasSignature {
         this.ctx.beginPath();
         this.ctx.moveTo(x, y);
     }
+
+    clearCanvas() {
+        const clearBtn = document.getElementById("clear-btn");
+        clearBtn.onclick = () => {
+         console.log("yipyepyup");
+        }
+    }
+
+ /*   clearCanvas(e) {
+       this.clearBtn.addEventListener('click', e => {
+            console.log("yipyepyup");
+        });
+    } */
 }
 
 // Méthode qui crée un canvas vide et invisible, qui permet de comparer le canvas supposé être rempli par l'utilisateur.
-// Si le canvas utilisateur est vide, un message d'alerte s'affiche.
+// Si le canvas utilisateur est vide (= identique au canvas vide invisible), un message d'alerte s'affiche.
 function isCanvasBlank(canvas) {
     const blank = document.createElement('canvas');
 
