@@ -1,4 +1,4 @@
-// Génère la carte LeafLet
+// class qui énère la carte avec LeafLet
 class MyMap {
     constructor() {
         this.apiUrl = 'https://api.jcdecaux.com/vls/v1/stations?contract=Mulhouse&apiKey=508a0da7d19086274962c418f8cc5b7338052869';
@@ -10,7 +10,7 @@ class MyMap {
         }).addTo(this.map);
     }
 
-    // méthode qui ajoute les marker sur chaque station
+    // méthode qui ajoute les markers sur chaque station
     addMarker(position, onClick) {
         var marker = L.marker(position).addTo(this.map);
         marker.addEventListener('click', function () {

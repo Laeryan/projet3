@@ -16,13 +16,7 @@ class DetailStation {
         this.bookingButtonElement.addEventListener('click', this.onBooking.bind(this));
         this._onSubmit = function () { };
         this.submitButtonElement.addEventListener('click', this.onSubmit.bind(this));
-        this.stationName = null;
-        
-        if (localStorage.getItem('firstName') != null) {
-            this.firstNameInputElement.value = localStorage.getItem('firstName')
-        } else if (localStorage.getItem('lastName') != null) {
-            this.lastNameInputElement.value = localStorage.getItem('lastName')
-        }
+        this.stationName = null;        
     }
 
     // méthode qui affiche le canvas et le bouton valider (pour la signature)
@@ -30,7 +24,7 @@ class DetailStation {
         this.signatureElement.style.display = 'inline-block';
     }
 
-    // vérifie que le canvas est rempli et que les éléments du form sont renseignés
+    // méthode qui vérifie que le canvas est rempli et que les éléments du form sont renseignés
     onSubmit() {
         if (this.lastNameInputElement.value == "" || this.firstNameInputElement.value == "") {
             alert('Veuillez saisir vos noms et prénoms');
@@ -41,6 +35,8 @@ class DetailStation {
         }
     }
 
+    // méthode qui affiche les informations sur les stations, récupérées grâce à l'API
+    // le localStorage permet de mémoriser les noms et prénoms de l'utilisateur dans le navigateur
     display(name, status, address, totalStands) {
         this.informationElement.style.display = 'none';
         this.formContainerElement.style.display = 'inline-block';
@@ -50,5 +46,13 @@ class DetailStation {
         let bikeNumber = "Il reste " + totalStands + " vélos à réserver !";
         this.stationStandsElement.textContent = bikeNumber;
         this.stationName = name;
+
+        if (localStorage.getItem('firstName') != null) {
+            this.firstNameInputElement.value = localStorage.getItem('firstName')
+        };
+        
+        if (localStorage.getItem('lastName') != null) {
+            this.lastNameInputElement.value = localStorage.getItem('lastName')
+        };
     }
 }

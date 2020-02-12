@@ -10,10 +10,11 @@ class Timer {
         }
 
     }
-    //  
+    //  rajouter les noms et prénoms dans la phrase
     display() {
         if (this.time && this.restTime() > 0) {
-            this.timerElement.innerHTML = `Il reste ${this.formatRestTime().restMinutes} minutes et ${this.formatRestTime().restSeconds} secondes avant l'annulation de votre réservation pour la station numéro ${sessionStorage.stationName}.`
+            this.timerElement.innerHTML = `Merci ${localStorage.firstName} ${localStorage.lastName} ! Il reste ${this.formatRestTime().restMinutes} minutes et ${this.formatRestTime().restSeconds}
+            secondes avant l'annulation de votre réservation pour la station numéro ${sessionStorage.stationName}.`
         }
 
         if (this.restTime <= 0) {

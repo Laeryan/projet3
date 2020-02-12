@@ -21,14 +21,13 @@ window.addEventListener("load", function () {     // méthode qui charge toutes 
         timer.start();
         sessionStorage.setItem('stationName', name);
         sessionStorage.setItem('reservationDate', timer.time);
-        localStorage.setItem('firstName', canvas.firstNameInputElement);
-        localStorage.setItem('lastName', canvas.lastNameInputElement);
+        localStorage.setItem('firstName', detail.firstNameInputElement.value);
+        localStorage.setItem('lastName', detail.lastNameInputElement.value);
     }
 
 
     api.listStations(function () {
-        const listStations = JSON.parse(this.responseText)
-
+        const listStations = JSON.parse(this.responseText)    // this. correspond à XMLHttpRequest
         for (let station of listStations) {
             const position = station.position
             map.addMarker([position.lat, position.lng], () => {

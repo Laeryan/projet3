@@ -1,10 +1,7 @@
 /*smartphone portrait*/
 @media all and (max-width: 479px)
 {
-    header {
-        display: flex;
-        flex-direction: column;
-    }
+    
 }
 
 @media all and (min-width: 480px) and (max-width: 650px)

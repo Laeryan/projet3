@@ -1,7 +1,6 @@
 class CanvasSignature {
     constructor() {
         this.canvas = document.getElementById('canvas');
-       // this.clearBtn = document.getElementById("clear-btn");
         this.ctx = canvas.getContext('2d');
         this.ctx.strokeStyle = 'black';
         this.ctx.lineWidth = 1;
@@ -11,6 +10,7 @@ class CanvasSignature {
         this.canvas.width = 250;
         this.canvas.height = 100;
         this.canvasEvents();
+        this.clearCanvas();
     }
 
     canvasEvents() {
@@ -33,7 +33,7 @@ class CanvasSignature {
         });
     }
 
-    //méthode qui affiche le dessin dans le canvas
+    // méthode qui affiche le dessin dans le canvas
     canvasDraw(e) {
         if (!this.draw) return
         const rect = this.canvas.getBoundingClientRect();
@@ -45,18 +45,13 @@ class CanvasSignature {
         this.ctx.moveTo(x, y);
     }
 
+    // méthode qui permet d'effacer le dessin du canvas afin d'en faire un nouveau lorsqu'on click sur le bouton "effacer"
     clearCanvas() {
         const clearBtn = document.getElementById("clear-btn");
         clearBtn.onclick = () => {
-         console.log("yipyepyup");
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);;
         }
     }
-
- /*   clearCanvas(e) {
-       this.clearBtn.addEventListener('click', e => {
-            console.log("yipyepyup");
-        });
-    } */
 }
 
 // Méthode qui crée un canvas vide et invisible, qui permet de comparer le canvas supposé être rempli par l'utilisateur.
